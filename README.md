@@ -1,11 +1,10 @@
 ## 📈 Human Evolution & Junior Image Simulation <br/>
-
   
-### 1. &nbsp; Research Objective <br/><br/> 
+### 1. &nbsp; Research Objective <br/><br/>
 
 - _The wine dataset contains the results of a chemical analysis of wines grown in a specific area of Italy. Three types of wine are represented in the 178 samples, with the results of 13 chemical analyses recorded for each sample. The Type variable has been transformed into a categoric variable. The data contains no missing values and consits of only numeric data, with a three class target variable (Type) for classification._ <br/>
 
-- _The goal here is to find a model that can predict the class of wine given the 13 measured parameters and find out the major differences among the three different classes. This is a classification problem and here I will describe three models and asses the accuracy of each model._ <br/><br/><br/>
+- _The goal here is to find a model that can predict the class of wine given the 13 measured parameters and find out the major differences among the three different classes. This is a classification problem and here I will describe three models and asses the accuracy of each model._ <br/><br/>
 
 ### 2. &nbsp; Data Preprocessing and Analysis <br/><br/>
 
@@ -14,13 +13,14 @@
   ```
   # sklearn 패키지에서 와인 데이터 세트를 사용하기 위해 load_wine 설정
   # 표준화를 위해 StandaradScaler 설정
-  # 학습용과 테스트 데이터 분리를 위해 train_test_split 설정
+  # 학습용 및 테스트 데이터 분리를 위해 train_test_split 설정
   from sklearn.datasets import load_wine
   from sklearn.preprocessing import StandardScaler
   from sklearn.model_selection import train_test_split
   import pandas as pd
   import matplotlib.pyplot as plt
   ```
+  
 - _**Data Preparation**_ <br/> 
 
   ```
@@ -32,7 +32,7 @@
   print(data.frame)
   
   # 입력 부분과 목표 값을 출력 
-  # 데이터의 입력 부분과 목표 변수 부분으 나누어 출력함으로써 개략적인 수치를 확인 
+  # 데이터의 입력 부분과 목표 변수 부분으로 나누어 출력함으로써 개략적인 수치를 확인 
   print(data.data)
   print(data.target)
   ```
@@ -52,7 +52,7 @@
   print("\n [ 데이터 프레임의 목표 변수(target) ]")
   for target in data.target_names:
       print(f' - {target}')
-  ```
+  ``` 
 
 - _**Splitting Data**_ <br/> 
 
@@ -75,22 +75,23 @@
   # 피처 스케일링 : 테스트 데이터 
   # 학습 데이터의 표준화 스케일을 사용해 테스트 데이터를 표준화
   x_test_std = scaler_x.transform(x_test)
-  ```
+  ``` 
+  <br/> 
 
 ### 3. &nbsp; Training and Testing Machine Learning Models <br/><br/>
 
 - _**KNN Model**_ <br/> 
-  - _KNN works by finding the distances between a query and all the examples in the data, selecting the specified number examples (K) closest to the query, then votes for the most frequent label (in the case of classification)._ 
+  - _KNN works by finding the distances between a query and all the examples in the data, selecting the specified number examples (K) closest to the query, then votes for the most frequent label (in the case of classification)._ <br/><br/>
   
   ```
   # KNN 분류를 위해 KNeighborsClassifier 설정
   from sklearn.neighbors import KNeighborsClassifier
 
   ## 최근접 이웃 수 결정
-  # 학습용 데이터의 분류 정확도
+  # 학습 & 테스트 데이터의 분류 정확도
   knn_train_accuracy = []
-  # 테스트 데이터의 분류 정확도
   knn_test_accuracy = []
+  
   # 최근접 이웃의 수(k) 
   # -> k가 너무 작으면 데이터의 노이즈 성분까지 고려하는 과대적합(overfitting) 문제가 발생, 
   # -> 반대로 k를 너무 크게 하면 결정함수가 너무 과하게 평탄화(oversmoothing)되는 문제가 발생
@@ -143,9 +144,10 @@
   knn_test_acuaracy = knn.score(x_test_std, y_test)
   knn_result = round(knn_test_acuaracy*100, 2)
   print(f'KNN 알고리즘을 이용한 분류 정확도 {knn_result }%')
-  ```
-  - _**SVM Model**_ <br/> 
-    - _SVM works by mapping data to a high-dimensional feature space so that data points can be categorized, even when the data are not otherwise linearly separable. A separator between the categories is found, then the data are transformed in such a way that the separator could be drawn as a hyperplane._ 
+  ``` <br/><br/>
+  
+ - _**SVM Model**_ <br/> 
+    - _SVM works by mapping data to a high-dimensional feature space so that data points can be categorized, even when the data are not otherwise linearly separable. A separator between the categories is found, then the data are transformed in such a way that the separator could be drawn as a hyperplane._<br/><br/> 
   
     ```
     # SVM 분류를 위해 svm 설정
@@ -160,10 +162,10 @@
     svm_test_acuaracy = clf.score(x_test_std, y_test)
     svm_result = round(svm_test_acuaracy*100, 2)
     print(f'SVM 알고리즘을 이용한 분류 정확도 {svm_result}%')
-    ```
-  
+    ``` 
+    
   - _**C5.0 Model**_ <br/> 
-    - _C5.0 works by splitting the sample based on the field that provides the maximum information gain . Each sub-sample defined by the first split is then split again, usually based on a different field, and the process repeats until the subsamples cannot be split any further._ 
+    - _C5.0 works by splitting the sample based on the field that provides the maximum information gain . Each sub-sample defined by the first split is then split again, usually based on a different field, and the process repeats until the subsamples cannot be split any further._ <br/><br/>
   
     ``` 
     # C5.0 분류를 위해 tree 설정
@@ -186,6 +188,7 @@
     c5_0_result = round(accuracy_score(y_test, y_pred)*100, 2)
     print(f'C5.0 알고리즘을 이용한 분류 정확도 {c5_0_result}%')
     ```
+    <br/>
 
 ### 4. &nbsp; Research Results <br/><br/>   
 
