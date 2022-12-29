@@ -1,4 +1,4 @@
-## 📈 Human Evolution & Junior Image Simulation <br/>
+## 📈 Classifying Wines by Quality Using Machine Learning <br/>
   
 ### 1. &nbsp; Research Objective <br/><br/>
 
