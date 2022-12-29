@@ -145,45 +145,49 @@
   print(f'KNN 알고리즘을 이용한 분류 정확도 {knn_result }%')
   ```
   - _**SVM Model**_ <br/> 
-  - _SVM works by mapping data to a high-dimensional feature space so that data points can be categorized, even when the data are not otherwise linearly separable. A separator between the categories is found, then the data are transformed in such a way that the separator could be drawn as a hyperplane._ 
+    - _SVM works by mapping data to a high-dimensional feature space so that data points can be categorized, even when the data are not otherwise linearly separable. A separator between the categories is found, then the data are transformed in such a way that the separator could be drawn as a hyperplane._ 
   
-  ```
-  # SVM 분류를 위해 svm 설정
-  from sklearn import svm
-  # SVM 분류 모형화 : 선형분리
-  clf = svm.SVC(kernel='linear')
-  # 모형 학습
-  clf.fit(x_train_std, y_train)
-  ```
-  ```
-  # SVM 학습된 모형으로 테스트 데이터를 분류했을때의 정확도 
-  svm_test_acuaracy = clf.score(x_test_std, y_test)
-  svm_result = round(svm_test_acuaracy*100, 2)
-  print(f'SVM 알고리즘을 이용한 분류 정확도 {svm_result}%')
-  ```
+    ```
+    # SVM 분류를 위해 svm 설정
+    from sklearn import svm
+    # SVM 분류 모형화 : 선형분리
+    clf = svm.SVC(kernel='linear')
+    # 모형 학습
+    clf.fit(x_train_std, y_train)
+    ```
+    ```
+    # SVM 학습된 모형으로 테스트 데이터를 분류했을때의 정확도 
+    svm_test_acuaracy = clf.score(x_test_std, y_test)
+    svm_result = round(svm_test_acuaracy*100, 2)
+    print(f'SVM 알고리즘을 이용한 분류 정확도 {svm_result}%')
+    ```
   
   - _**C5.0 Model**_ <br/> 
-  - _C5.0 works by splitting the sample based on the field that provides the maximum information gain . Each sub-sample defined by the first split is then split again, usually based on a different field, and the process repeats until the subsamples cannot be split any further._ 
+    - _C5.0 works by splitting the sample based on the field that provides the maximum information gain . Each sub-sample defined by the first split is then split again, usually based on a different field, and the process repeats until the subsamples cannot be split any further._ 
   
-  ``` 
-  # C5.0 분류를 위해 tree 설정
-  # C5.0 학습 후에 테스트 데이터에 대한 예측값과 실제값의 정확도를 평가하기 위해
-  from sklearn import tree
-  from sklearn.metrics import accuracy_score
-  # C5.0 모형화 : 입력변수에 의한 목표변수의 평가지표는 'entropy'로 설정
-  clf = tree.DecisionTreeClassifier(criterion="entropy")
-  # 모형 학습 
-  # 참고로 C5.0 알고리즘은 학습 데이터의 피처 스케일링을 할 필요가 없음 
-  # 반대로, KNN 알고리즘 & SVM 알고리즘은 학습 데이터의 피처 스케일링이 필요)
-  clf.fit(x_train, y_train)
-  ```
-  
-  
-### 4. &nbsp; Research Objective <br/>   
+    ``` 
+    # C5.0 분류를 위해 tree 설정
+    # C5.0 학습 후에 테스트 데이터에 대한 예측값과 실제값의 정확도를 평가하기 위해
+    from sklearn import tree
+    from sklearn.metrics import accuracy_score
+    # C5.0 모형화 : 입력변수에 의한 목표변수의 평가지표는 'entropy'로 설정
+    clf = tree.DecisionTreeClassifier(criterion="entropy")
+    # 모형 학습 
+    # 참고로 C5.0 알고리즘은 학습 데이터의 피처 스케일링을 할 필요가 없음 
+    # 반대로, KNN 알고리즘 & SVM 알고리즘은 학습 데이터의 피처 스케일링이 필요)
+    clf.fit(x_train, y_train)
+    ```
+    <img src="https://github.com/qortmdgh4141/Classifying_Wines_by_Quality_Using_Machine_Learning/blob/main/image/tree_graph.png?raw=true"  width="580" > <br/>
+    ```
+    # C5.0 학습된 모형으로 테스트 데이터를 분류했을때의 정확도 
+    # 참고로 C5.0 알고리즘은 테스트 데이터의 피처 스케일링을 할 필요가 없음 
+    # 반대로, KNN 알고리즘 & SVM 알고리즘은 테스트 데이터의 피처 스케일링이 필요)
+    y_pred = clf.predict(x_test)
+    c5_0_result = round(accuracy_score(y_test, y_pred)*100, 2)
+    print(f'C5.0 알고리즘을 이용한 분류 정확도 {c5_0_result}%')
+    ```
 
-    
-- C5.0 works by splitting the sample based on the field that provides the maximum information gain . Each sub-sample defined by the first split is then split again, usually based on a different field, and the process repeats until the subsamples cannot be split any further.
-
+### 4. &nbsp; Research Results <br/>   
 
 &nbsp; <img src="https://github.com/qortmdgh4141/Classifying_Wines_by_Quality_Using_Machine_Learning/blob/main/image/bar_graph.png?raw=true"  width="480" > <br/>
 --------------------------
