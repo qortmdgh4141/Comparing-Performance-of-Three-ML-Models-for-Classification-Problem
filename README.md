@@ -128,7 +128,8 @@
   plt.ylabel("Accuracy")
   plt.legend()
   plt.show()
-
+  ```  
+  <img src="https://github.com/qortmdgh4141/Classifying_Wines_by_Quality_Using_Machine_Learning/blob/main/image/knn_graph.png?raw=true"  width="400" > <br/>
   
 ### 4. &nbsp; Research Objective <br/>   
 - SVM
