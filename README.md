@@ -187,9 +187,10 @@
     print(f'C5.0 알고리즘을 이용한 분류 정확도 {c5_0_result}%')
     ```
 
-### 4. &nbsp; Research Results <br/>   
+### 4. &nbsp; Research Results <br/><br/>   
 
-&nbsp; <img src="https://github.com/qortmdgh4141/Classifying_Wines_by_Quality_Using_Machine_Learning/blob/main/image/bar_graph.png?raw=true"  width="480" > <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://github.com/qortmdgh4141/Classifying_Wines_by_Quality_Using_Machine_Learning/blob/main/image/bar_graph.png?raw=true"  width="640" > <br/><br/> 
+
 --------------------------
 ### 💻 S/W Development Environment
 <p>
