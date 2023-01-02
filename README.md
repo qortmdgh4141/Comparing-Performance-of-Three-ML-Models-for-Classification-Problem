@@ -1,10 +1,11 @@
-## 📈 Classifying Wines by Quality Using Machine Learning <br/>
+# 📈 Classifying Wines by Quality Using Machine Learning 
+<br/>
   
 ### 1. &nbsp; Research Objective <br/><br/>
 
 - _The wine dataset contains the results of a chemical analysis of wines grown in a specific area of Italy. Three types of wine are represented in the 178 samples, with the results of 13 chemical analyses recorded for each sample. The Type variable has been transformed into a categoric variable. The data contains no missing values and consits of only numeric data, with a three class target variable (Type) for classification._ <br/>
 
-- _The goal here is to find a model that can predict the class of wine given the 13 measured parameters and find out the major differences among the three different classes. This is a classification problem and here I will describe three models and asses the accuracy of each model._ <br/><br/>
+- _The goal here is to find a model that can predict the class of wine given the 13 measured parameters and find out the major differences among the three different classes. This is a classification problem and here I will describe three models and asses the accuracy of each model._ <br/><br/><br/> 
 
 ### 2. &nbsp; Data Preprocessing and Analysis <br/><br/>
 
