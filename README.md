@@ -1,4 +1,4 @@
-# 📊  Classifying Wines by Quality Using Machine Learning  
+# 📊  Comparing Performance of Three Machine Learning Models for Wine Classification
 <br/>
   
 ### 1. &nbsp; Research Objective <br/><br/>
