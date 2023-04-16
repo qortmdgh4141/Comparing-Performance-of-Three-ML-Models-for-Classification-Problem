@@ -14,12 +14,18 @@
   ```
   # sklearn 패키지에서 와인 데이터 세트를 사용하기 위해 load_wine 설정
   # 표준화를 위해 StandaradScaler 설정
-  # 학습용 및 테스트 데이터 분리를 위해 train_test_split 설정
+  # 학습용과 테스트 데이터 분리를 위해 train_test_split 설정
   from sklearn.datasets import load_wine
   from sklearn.preprocessing import StandardScaler
   from sklearn.model_selection import train_test_split
   import pandas as pd
   import matplotlib.pyplot as plt
+
+  # 그래프를 시각화하기 위해 필요한 라이브러리 설정
+  import numpy as np
+  from matplotlib import cm
+  from matplotlib.colors import ListedColormap, LinearSegmentedColormap
+  from matplotlib import colors as mcolors, path
   ```
   
 - _**Data Preparation**_ <br/> 
@@ -193,7 +199,41 @@
 
 ### 4. &nbsp; Research Results <br/><br/>   
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://github.com/qortmdgh4141/Classifying_Wines_by_Quality_Using_Machine_Learning/blob/main/image/bar_graph.png?raw=true"  width="640" > <br/><br/> 
+
+  ```
+  def gradientbars(bars, cmap_list):
+      # cmap 가중치 설정
+      grad = np.atleast_2d(np.linspace(0,1,256)).T
+      # 플롯 영역 재설정
+      ax = bars[0].axes
+      lim = ax.get_xlim()+ax.get_ylim()
+      ax.axis(lim)
+      # 각 막대에 색 입히기
+      max = 0
+      for i, bar in enumerate(bars):
+          bar.set_facecolor("none")
+          x,y = bar.get_xy()
+          w, h = bar.get_width(), bar.get_height()
+          ax.imshow(grad, extent=[x,x+w,y,y+h], aspect="auto", cmap=cmap_list[i])
+
+          plt.text(x+w/2.0+0.015, h+0.7, "{}%".format(h), fontsize=14, ha='center', va='bottom')
+
+  fig, ax = plt.subplots(figsize=(8,8))
+  df = pd.DataFrame({'Model':['KNN', 'SVM', 'C5.0'], 'Accuracy':[knn_result, svm_result, c5_0_result]})
+  cmap_color = ['viridis_r', 'YlOrRd', 'viridis_r']
+  gradientbars(ax.bar(df.Model, df.Accuracy), cmap_color)
+
+  plt.title("     < Comparison of classification accuracy of 3 models >     \n", fontsize=18)
+  plt.ylabel('Accuracy', fontsize=16)
+  plt.ylim([0, 100])
+  plt.xticks(fontsize=16)
+  plt.show()
+  ```
+   <br/>
+
+<p align="center">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/qortmdgh4141/Classifying_Wines_by_Quality_Using_Machine_Learning/blob/main/image/bar_graph.png?raw=true" alt="bar_graph" width="640" >&nbsp;&nbsp;&nbsp;&nbsp;
+</p> <br/> <br/> <br/>
 
 --------------------------
 ### 💻 S/W Development Environment
