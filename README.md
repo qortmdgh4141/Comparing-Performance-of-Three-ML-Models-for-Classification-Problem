@@ -1,4 +1,4 @@
-# 📊  Comparing Performance of Three Machine Learning Models for Wine Classification
+# 📊  Comparing Performance of Three ML Models for Classification Problem
 <br/> 
   
 ### 1. &nbsp; Research Objective <br/><br/>
