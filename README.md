@@ -255,4 +255,4 @@
 </p> 
 
 ### 💾 Dataset used in the project
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Wine Quality Data Set
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Wine Recognition Dataset
